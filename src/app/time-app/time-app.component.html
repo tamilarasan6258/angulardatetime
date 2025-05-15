@@ -1,0 +1,28 @@
+<div style="text-align: center; padding: 2rem; font-family: Arial;">
+    <h1>Time App</h1>
+  
+    <div style="margin-bottom: 2rem;">
+      <h2>Local Time:</h2>
+      <p style="font-size: 2rem;">{{ localTime }}</p>
+    </div>
+  
+    <div style="margin-bottom: 2rem;">
+      <h2>Select Time Zone:</h2>
+      <select
+        [(ngModel)]="selectedZone"
+        (change)="onZoneChange()"
+        style="padding: 0.5rem; font-size: 1rem;"
+      >
+        <option value="">-- Select Time Zone --</option>
+        <option *ngFor="let zone of zones" [value]="zone">
+          {{ zone }}
+        </option>
+      </select>
+    </div>
+  
+    <div *ngIf="selectedZone">
+      <h2>Time in {{ selectedZone }}:</h2>
+      <p style="font-size: 2rem;">{{ zoneTime }}</p>
+    </div>
+  </div>
+  
